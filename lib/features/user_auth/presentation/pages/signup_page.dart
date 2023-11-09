@@ -3,8 +3,26 @@ import 'package:flutter/material.dart';
 
 import 'login_page.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+
+  TextEditingController  _usernameController = TextEditingController();
+  TextEditingController  _emailController = TextEditingController();
+  TextEditingController  _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +41,7 @@ class SignUpPage extends StatelessWidget {
                 height: 30,
               ),
               FormContainerWidget(
+                controller: _usernameController,
                 hintText: "Username",
                 isPasswordField: false,
               ),
@@ -30,6 +49,7 @@ class SignUpPage extends StatelessWidget {
                 height: 10,
               ),
               FormContainerWidget(
+                controller: _emailController,
                 hintText: "Email",
                 isPasswordField: false,
               ),
@@ -37,6 +57,7 @@ class SignUpPage extends StatelessWidget {
                 height: 10,
               ),
               FormContainerWidget(
+                controller: _passwordController,
                 hintText: "Password",
                 isPasswordField: true,
               ),
