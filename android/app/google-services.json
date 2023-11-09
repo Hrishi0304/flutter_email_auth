@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "898918927279",
+    "project_id": "flutter-email-auth-b0e17",
+    "storage_bucket": "flutter-email-auth-b0e17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898918927279:android:8fe79c84b5cf3f24787d5a",
+        "android_client_info": {
+          "package_name": "com.example.email_auth"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZZj5NxHB2XEuT2xZMgT_fvggCV-VOU9Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
