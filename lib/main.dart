@@ -1,8 +1,17 @@
 import 'package:email_auth/features/app/splash_screen/splash_screen.dart';
 import 'package:email_auth/features/user_auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

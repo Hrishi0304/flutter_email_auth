@@ -1,7 +1,9 @@
+import 'package:email_auth/features/user_auth/firebase_auth/firebase_auth_services.dart';
 import 'package:email_auth/features/user_auth/presentation/widgets/form_container_widgets.dart';
 import 'package:flutter/material.dart';
-
 import 'login_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -11,6 +13,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+
+  final FirebaseAuthService _auth = FirebaseAuthService();
 
   TextEditingController  _usernameController = TextEditingController();
   TextEditingController  _emailController = TextEditingController();
@@ -64,14 +68,17 @@ class _SignUpPageState extends State<SignUpPage> {
               SizedBox(
                 height: 30,
               ),
-              Container(
-                  width: double.infinity,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(child: Text("Sign Up",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),)
+              GestureDetector(
+                onTap: _signUp,
+                child: Container(
+                    width: double.infinity,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(child: Text("Sign Up",style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),)
+                ),
               ),
               SizedBox(height: 20,),
               Row(
@@ -92,5 +99,20 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
+  }
+  void _signUp() async {
+    String username = _usernameController.text;
+    String email = _emailController.text;
+    String password = _passwordController.text;
+
+    User? user = await _auth.signUpWithEmailAndPassword(email, password);
+
+    if(user != null){
+      print("User is successfully created");
+      Navigator.pushNamed(context, "/home");
+    }
+    else{
+      print("Some error happened");
+    }
   }
 }
