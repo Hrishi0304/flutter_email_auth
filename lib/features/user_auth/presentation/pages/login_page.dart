@@ -1,8 +1,8 @@
 import 'package:email_auth/features/user_auth/presentation/pages/signup_page.dart';
 import 'package:email_auth/features/user_auth/presentation/widgets/form_container_widgets.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'home_page.dart';
+
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
